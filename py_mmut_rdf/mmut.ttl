@@ -1,0 +1,55 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mmut: <http://frittenburger.de/ontology/mmut#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mmut:BinaryMicroModel a owl:Class ;
+    rdfs:label "An Binary micro model."@en ;
+    rdfs:subClassOf mmut:MicroModel .
+
+mmut:PythonScriptTransformation a owl:Class ;
+    rdfs:label "A Python-based transformation."@en ;
+    rdfs:subClassOf mmut:Transformation .
+
+mmut:RDFMicroModel a owl:Class ;
+    rdfs:label "An RDF micro model."@en ;
+    rdfs:subClassOf mmut:MicroModel .
+
+mmut:SysMLMicroModel a owl:Class ;
+    rdfs:label "An SysML micro model."@en ;
+    rdfs:subClassOf mmut:MicroModel .
+
+mmut:extendsModel a owl:ObjectProperty ;
+    rdfs:label "extends model"@en ;
+    rdfs:domain mmut:MicroModel ;
+    rdfs:range mmut:MicroModel .
+
+mmut:hasLooseCoupling a owl:ObjectProperty ;
+    rdfs:label "couples loose to"@en ;
+    rdfs:domain mmut:MicroModel ;
+    rdfs:range mmut:MicroModel .
+
+mmut:hasOutputModel a owl:ObjectProperty ;
+    rdfs:label "transforms to model"@en ;
+    rdfs:domain mmut:Transformation ;
+    rdfs:range mmut:MicroModel .
+
+mmut:isInputModelOf a owl:ObjectProperty ;
+    rdfs:label "model used for transformation"@en ;
+    rdfs:domain mmut:MicroModel ;
+    rdfs:range mmut:Transformation .
+
+<https://gitlab.hpi.de/dfriedenberger/mmut> a owl:Ontology ;
+    dcterms:creator <https://www.researchgate.net/profile/Dirk_Friedenberger>,
+        "Dirk Friedenberger" ;
+    dcterms:description "A rdf Ontology for model Micro Models and Transformation."@en ;
+    dcterms:identifier "http://frittenburger.de/ontology/mmut#" ;
+    dcterms:title "Micro Model and Transformation Ontology" ;
+    owl:versionInfo "0.0.1" .
+
+mmut:Transformation a owl:Class ;
+    rdfs:label "An abstract transformation."@en .
+
+mmut:MicroModel a owl:Class ;
+    rdfs:label "An abstract micro model."@en .
+
