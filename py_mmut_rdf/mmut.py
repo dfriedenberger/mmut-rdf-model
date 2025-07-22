@@ -24,7 +24,21 @@ class MMUT(DefinedNamespace):
     Transformation: URIRef = ontology.get_class('#Transformation')
     PythonScriptTransformation: URIRef = ontology.get_class('#PythonScriptTransformation')
 
+    TaskDefinition: URIRef = ontology.get_class('#TaskDefinition')
+    ContainerProperties: URIRef = ontology.get_class('#ContainerProperties')
+    Environment: URIRef = ontology.get_class('#Environment')
+    KeyValuePair: URIRef = ontology.get_class('#KeyValuePair')
+
     isInputModelOf: URIRef = ontology.get_object_property('#isInputModelOf')
     hasOutputModel: URIRef = ontology.get_object_property('#hasOutputModel')
     hasLooseCoupling: URIRef = ontology.get_object_property('#hasLooseCoupling')
     extendsModel: URIRef = ontology.get_object_property('#extendsModel')
+    hasTaskDefinition: URIRef = ontology.get_object_property('#hasTaskDefinition')
+    hasContainerProperties: URIRef = ontology.get_object_property('#hasContainerProperties')
+    hasCommandSequence: URIRef = ontology.get_object_property('#hasCommandSequence')
+    hasEnvironment: URIRef = ontology.get_object_property('#hasEnvironment')
+    hasKeyValuePair: URIRef = ontology.get_object_property('#hasKeyValuePair')
+    
+    key: URIRef = ontology.get_datatype_property('#key')
+    value: URIRef = ontology.get_datatype_property('#value')
+    image: URIRef = ontology.get_datatype_property('#image')

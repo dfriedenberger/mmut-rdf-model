@@ -48,6 +48,36 @@ g.add((NS.PythonScriptTransformation, RDF.type, OWL.Class))
 g.add((NS.PythonScriptTransformation, RDFS.subClassOf, NS.Transformation))
 g.add((NS.PythonScriptTransformation, RDFS.label, Literal("A Python-based transformation.", lang='en')))
 
+# Extension: TaskDefinition
+g.add((NS.TaskDefinition, RDF.type, OWL.Class))
+g.add((NS.TaskDefinition, RDFS.label, Literal("A task definition for implementing processes.", lang='en')))
+
+
+g.add((NS.ContainerProperties, RDF.type, OWL.Class))
+g.add((NS.ContainerProperties, RDFS.label, Literal("Properties of a container.", lang='en')))
+
+g.add((NS.Environment, RDF.type, OWL.Class))
+g.add((NS.Environment, RDFS.label, Literal("An environment for executing containers.", lang='en')))
+
+g.add((NS.KeyValuePair, RDF.type, OWL.Class))
+g.add((NS.KeyValuePair, RDFS.label, Literal("A key-value pair.", lang='en')))
+
+# properties
+g.add((NS.key, RDF.type, OWL.DatatypeProperty))
+g.add((NS.key, RDFS.domain, NS.KeyValuePair))
+g.add((NS.key, RDFS.range, XSD.string))
+g.add((NS.key, RDFS.label, Literal("key of the key-value pair", lang='en')))
+
+g.add((NS.value, RDF.type, OWL.DatatypeProperty))
+g.add((NS.value, RDFS.domain, NS.KeyValuePair))
+g.add((NS.value, RDFS.range, XSD.string))
+g.add((NS.value, RDFS.label, Literal("value of the key-value pair", lang='en')))
+
+g.add((NS.image, RDF.type, OWL.DatatypeProperty))
+g.add((NS.image, RDFS.domain, NS.ContainerProperties))
+g.add((NS.image, RDFS.range, XSD.string))
+g.add((NS.image, RDFS.label, Literal("image of the container", lang='en')))
+
 
 # relations
 g.add((NS.isInputModelOf, RDF.type, OWL.ObjectProperty))
@@ -69,6 +99,32 @@ g.add((NS.extendsModel, RDF.type, OWL.ObjectProperty))
 g.add((NS.extendsModel, RDFS.domain, NS.MicroModel))
 g.add((NS.extendsModel, RDFS.range, NS.MicroModel))
 g.add((NS.extendsModel, RDFS.label, Literal("extends model", lang='en')))
+
+
+g.add((NS.hasTaskDefinition, RDF.type, OWL.ObjectProperty))
+g.add((NS.hasTaskDefinition, RDFS.domain, OWL.Thing))
+g.add((NS.hasTaskDefinition, RDFS.range, NS.TaskDefinition))
+g.add((NS.hasTaskDefinition, RDFS.label, Literal("task definition for processing", lang='en')))
+
+g.add((NS.hasContainerProperties, RDF.type, OWL.ObjectProperty))
+g.add((NS.hasContainerProperties, RDFS.domain, NS.TaskDefinition))
+g.add((NS.hasContainerProperties, RDFS.range, NS.ContainerProperties))
+g.add((NS.hasContainerProperties, RDFS.label, Literal("container properties for processing", lang='en')))
+
+g.add((NS.hasCommandSequence, RDF.type, OWL.ObjectProperty))
+g.add((NS.hasCommandSequence, RDFS.domain, NS.ContainerProperties))
+g.add((NS.hasCommandSequence, RDFS.range, RDF.Seq))
+g.add((NS.hasCommandSequence, RDFS.label, Literal("command to run the container", lang='en')))
+
+g.add((NS.hasEnvironment, RDF.type, OWL.ObjectProperty))
+g.add((NS.hasEnvironment, RDFS.domain, NS.ContainerProperties))
+g.add((NS.hasEnvironment, RDFS.range, NS.Environment))
+g.add((NS.hasEnvironment, RDFS.label, Literal("environment for processing", lang='en')))
+
+g.add((NS.hasKeyValuePair, RDF.type, OWL.ObjectProperty))
+g.add((NS.hasKeyValuePair, RDFS.domain, NS.Environment))
+g.add((NS.hasKeyValuePair, RDFS.range, NS.KeyValuePair))
+g.add((NS.hasKeyValuePair, RDFS.label, Literal("key-value pairs for container properties", lang='en')))
 
 
 # Serialisierung der Ontologie in RDF/XML-Syntax
