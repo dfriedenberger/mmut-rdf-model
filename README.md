@@ -10,7 +10,7 @@ Visualized the ontology with [WebVOWL](https://service.tib.eu/webvowl/)
 
 
 ## Installation
-
+See: https://pypi.org/project/py_mmut_rdf/
 ```bash
 pip install py-mmut-rdf
 ```
